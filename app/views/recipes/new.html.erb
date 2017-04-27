@@ -1,0 +1,31 @@
+<% provide(:title, 'New Recipe') %>
+<h1>Create new recipe</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_tag recipes_path, method: "post"  do  %>
+        <h3>Recipe</h3>
+
+        <h3>Steps</h3>
+
+        <% @steps.each do |step_unit| %>
+            <%= fields_for 'steps[]', step_unit do |s| %>
+
+                <div class="field">
+                  <%= s.label :text %><br>
+                  <%= s.text_field :text, name: 'steps[' + @steps.index(step_unit).to_s + '][text]' %>
+                </div>
+                <div class="field">
+                  <%= s.label :order %><br>
+                  <%= s.text_field :order, name: 'steps[' + @steps.index(step_unit).to_s + '][order]' %>
+                </div>
+
+            <% end %>
+        <% end %>
+
+        <div class="actions">
+          <%= submit_tag %>
+        </div>
+    <% end %>
+  </div>
+</div>
