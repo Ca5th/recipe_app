@@ -3,8 +3,11 @@
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-    <%= form_tag recipes_path, method: "post"  do  %>
+    <%= form_for @recipe do |f|  %>
         <h3>Recipe</h3>
+
+        <%= f.label :name %>
+        <%= f.text_field :name, class: 'form-control' %>
 
         <h3>Steps</h3>
 
