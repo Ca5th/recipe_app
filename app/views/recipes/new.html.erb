@@ -1,6 +1,5 @@
 <% provide(:title, 'New Recipe') %>
 <h1>Create new recipe</h1>
-
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <%= form_for @recipe do |f|  %>
@@ -8,6 +7,9 @@
 
         <%= f.label :name %>
         <%= f.text_field :name, class: 'form-control' %>
+
+        <%= f.label :time %>
+        <%= f.text_field :time, class: 'form-control' %>
 
         <h3>Steps</h3>
 

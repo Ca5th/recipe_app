@@ -1,2 +1,14 @@
-<h1>Recipes#show</h1>
-<p>Find me in app/views/recipes/show.html.erb</p>
+<% provide(:title, @recipe.name) %>
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <h1>
+        <%= @recipe.name %>
+      </h1>
+
+      <% @recipe.steps.each do |step| %>
+        <li><%= step.text %></li>
+      <% end %>
+    </section>
+  </aside>
+</div>

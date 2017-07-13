@@ -8,7 +8,7 @@ class RecipesController < ApplicationController
   end
 
   def create
-    @recipe = Recipe.new(name: params["recipe"]["name"])
+    @recipe = Recipe.new(name: params["recipe"]["name"], time: params["recipe"]["time"])
     recipe_saved = @recipe.save
     params["steps"].each do |key, value|
         recipe_text = value["text"]
@@ -35,6 +35,7 @@ class RecipesController < ApplicationController
   end
 
   def show
+    @recipe = Recipe.find params[:id]
   end
 
 end
